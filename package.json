@@ -5,9 +5,6 @@
 		"type": "git",
 		"url": "https://github.com/promit2014/TimeWaste.git"
 	},
-	"scripts": {
-		"postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"
-	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
 		"express": "^4.14.0",

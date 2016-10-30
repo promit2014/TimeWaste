@@ -18,8 +18,8 @@ if (typeof ipaddress === "undefined") {
         };
 
 // if OPENSHIFT env variables are present, use the available connection info:
-if (process.env.OPENSHIFT_MONGODB_DB_PORT) {
-	mongo_url = 'mongodb://'+process.env.OPENSHIFT_MONGODB_DB_HOST+':'+process.env.OPENSHIFT_MONGODB_DB_PORT+'/timewaste';
+if (process.env.OPENSHIFT_MONGODB_DB_URL) {
+	mongo_url = process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME;
 }
 
 mongoose.connect(mongo_url);
