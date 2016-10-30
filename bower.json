@@ -1,0 +1,25 @@
+{
+  "name": "TimeWaste",
+  "description": "Social Networking Website for testing",
+  "main": "",
+  "authors": [
+    "promit2014 <promit.2014@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "social",
+    "networking",
+    "friends"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
