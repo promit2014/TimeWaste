@@ -6,8 +6,8 @@ var app = express();
 
 mongoose.connect('mongodb://localhost:27017/time-waste');
 
-app.use('/app', express.static(__dirname+'/app'));
-app.use('/bower_components',express.static(__dirname+'/bower_components'));
+app.use('/', express.static(__dirname+'/app'));
+app.use('/',express.static(__dirname+'/bower_components'));
 
 app.get('/',function(req,res){
 	//res.sendFile('index.html');
