@@ -1,9 +1,13 @@
 {
-  "name": "TimeWaste",
-  "version": "0.0.1",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "mongoose": "^4.6.5"
-  }
+	"name": "TimeWaste",
+	"version": "0.0.1",
+	"scripts": {
+		"postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install"
+	},
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"express": "^4.14.0",
+		"mongoose": "^4.6.5",
+		"bower": "^1.4.1"
+	}
 }

@@ -3,9 +3,11 @@ angular.module('TimeWaste')
 	//console.log("Inside of Signup controller");
 	$scope.createUser = function(){
 		$http.post('/api/user/signup',$scope.user).success(function(res){
-			console.log("success");
+			$scope.successful = true;
+			$scope.errorOut = false;
 		}).error(function(res){
-			console.log("error");
+			$scope.errorOut = true;
+			$scope.successful = false;
 		});
 	}
 }])
