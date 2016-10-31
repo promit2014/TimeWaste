@@ -36,7 +36,8 @@ app.get('/',function(req,res){
 
 //authentication
 app.post('/api/user/signup',authenticateUser.signup);
+app.post('/api/user/login',authenticateUser.login);
 
 app.listen(port, ipaddress,function(){
-	console.log("Listening for localhost 3000");
+	console.log("Listening for "+ipaddress+":"+port);
 });

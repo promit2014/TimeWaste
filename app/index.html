@@ -8,7 +8,7 @@
 </head>
 <body>
 	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">
@@ -23,7 +23,7 @@
 					<div class="form-group">
 						<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
 					</div>
-					<button type="submit" class="btn btn-primary">Login</button>
+					<button type="submit" class="btn btn-primary" ng-click="logUserIn()">Login</button>
 					<a ui-sref="signup" class="text-warning">Signup</a>
 				</form>
 			</div>
@@ -38,5 +38,6 @@
 <script src="/angular/angular.js"></script>
 <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="/app.js"></script>
+<script src="/appLayout/controllers/navCtrl.js"></script>
 <script src="/signup/controller/SignupController.js"></script>
 </html>
