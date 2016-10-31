@@ -18,8 +18,12 @@ var login = function(req,res){
 	User.find(req.body , function(err , results){
 		if(err){
 			console.log("Error Out",err);
-			res.status(500).json({"error":"Error Occured"});
+			res.status(500).json({error:"Error Occured"});
+		}else if(results.length  = 0){
+			console.log("No User Exist");
+			res.status(200).json({error : "Not Found"});
 		}else if(results.length > 0){
+			console.log("Successfully found User");
 			res.status(200).json({email : req.body.email});
 		}
 	});
