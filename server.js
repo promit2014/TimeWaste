@@ -1,9 +1,27 @@
 var express = require("express");
+var http = require("http");
+var socketIO = require("socket.io");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var authenticateUser = require("./server/controllers/authentication-controller");
 
 var app = express();
+
+var server = http.createServer(app);
+
+var io = socketIO.listen(server);
+
+io.sockets.on('connection',function(socket){
+	socket.on('User-Loggedin',function(data){
+		console.log("user logged In : "+data+" with socket id : "+socket.id);
+	});
+	socket.on('User-Loggedout',function(data){
+		console.log("user logged Out : "+data);
+	});
+	socket.on('disconnect',function(){
+		console.log("user disconnected : "+socket.id);
+	});
+});
 
 var mongo_url = 'mongodb://localhost:27017/time-waste';
 
@@ -38,6 +56,6 @@ app.get('/',function(req,res){
 app.post('/api/user/signup',authenticateUser.signup);
 app.post('/api/user/login',authenticateUser.login);
 
-app.listen(port, ipaddress,function(){
-	console.log("Listening for "+ipaddress+":"+port);
+server.listen(port, ipaddress,function(){
+	console.log("Listening on host : "+ipaddress+" and port :"+port);
 });
