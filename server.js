@@ -7,6 +7,7 @@ var passport = require("passport");
 var jwt = require("jsonwebtoken");
 var config = require("./server/config/configurations");
 var authenticateUser = require("./server/controllers/authentication-controller");
+var authenticatedRoutes = require("./server/controllers/authenticatedRoutes.js")(passport);
 var SocketIO = require("./server/socket/socket");
 
 var app = express();
@@ -61,6 +62,9 @@ app.get('/',function(req,res){
 
 //authentications Routes
 app.use('/api/user',authenticateUser);
+
+//authenticated routes and restricted user
+app.use('/',authenticatedRoutes);
 
 //Start listing 
 server.listen(port, ipaddress,function(){
