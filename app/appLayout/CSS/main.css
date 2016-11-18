@@ -1,3 +1,12 @@
 body {
 	margin-top: 70px;
 }
+
+.navbar-links{
+	color: white;
+}
+
+.navbar-links:hover{
+	color: skyblue;
+	text-decoration: none;
+}
