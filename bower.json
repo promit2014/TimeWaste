@@ -23,6 +23,7 @@
     "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
     "angular-ui-router": "^0.3.1",
-    "socket.io": "^1.5.1"
+    "socket.io": "^1.5.1",
+    "angular-socket-io": "^0.7.0"
   }
 }
