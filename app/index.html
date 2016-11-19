@@ -12,28 +12,35 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
 		<div class="container-fluid">
 			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
 				<a class="navbar-brand" href="#">
 					TimeWaste
 				</a>
 			</div>
 			<div class="container">
-				<div class = "visible-md visible-lg">
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							<input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
-						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
-						</div>
-						<button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
-						<a ui-sref="signup" class="navbar-links">Signup</a>
-					</form>
-				</div>
-				<div class="visible-xs visible-sm">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a ui-sref="signup" class="navbar-links">SignUp</a></li>
-						<li><a ui-sref="signin" class="navbar-links">SignIn</a></li>
-					</ul>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<div class = "visible-md visible-lg">
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
+							</div>
+							<button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
+							<a ui-sref="signup" class="navbar-links">Signup</a>
+						</form>
+					</div>
+					<div class="visible-xs visible-sm">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a ui-sref="signup" class="navbar-links">SignUp</a></li>
+							<li><a ui-sref="signin" class="navbar-links">SignIn</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
