@@ -29,18 +29,22 @@ var loginProcessor = function(req,SuccessCB,ErrorCB,notFoundCB){
 	User.findOne({email : req.body.email} , function(err , user){
 		if(err){
 			console.log("Error Out when Sign In --> ",err);
-			ErrorCB({error:"Error Occured"});
+			ErrorCB({error:"Error Occured During Login"});
 		};
 
+		console.log("data----->",user);
+
 		if(!user){
-			notFoundCB({error : "Not Found"});
+			notFoundCB({error : "User Not Found"});
 		}else{
 			user.comparePassword(req.body.password , function(err , isMatch){
 				if(isMatch && !err){
 					var authToken = jwt.sign({user:user.email} , config.secret , {
 						expiresIn : 10080 //seconds
 					});
-					SuccessCB({email : user.email , token : 'JWT '+authToken});
+					SuccessCB({email : user.email , authToken : 'JWT '+authToken});
+				}else{
+					notFoundCB({error : "Password Doesnot match"});
 				}
 			});
 		};

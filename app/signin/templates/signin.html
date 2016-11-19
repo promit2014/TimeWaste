@@ -2,8 +2,8 @@
 	<div class="col-md-6">
 		
 	</div>
-	<div class="col-md-6 col-sm-12 indexFormPadding">
-		<div class="row">
+	<div class="col-md-6 col-sm-12 ">
+		<div class="row indexFormPadding">
 			<form>
 				<div class="form-group">
 					<label for="email">Email address:</label>
@@ -16,6 +16,12 @@
 				<!-- <button type="submit" class="btn btn-primary pull-right" ng-click="$parent.logUserIn(user)">Login</button> -->
 				<button type="submit" class="btn btn-primary btn-block" ng-click="$parent.logUserIn(user)">Login</button>
 			</form>
+		</div>
+		<div class="row text-center">
+			<a ui-sref="signup" >Create An Account</a>
+		</div>
+		<div class="row">
+			<flash-message duration="5000" show-close="true"></flash-message>
 		</div>
 	</div>
 </div>

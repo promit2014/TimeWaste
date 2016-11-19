@@ -21,7 +21,7 @@ router.post('/login',function(req,res){
 		res.status(500).json({error:"Error Occured"});
 	},function(notFound){
 		console.log("No User Exist");
-		res.status(401).json({error : "Not Found"});
+		res.status(401).json(notFound);
 	});
 });
 

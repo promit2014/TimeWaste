@@ -22,23 +22,35 @@
 				</a>
 			</div>
 			<div class="container">
-				<div class = "visible-md visible-lg">
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							<input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
+				<div ng-if="!isAuthenticated()">
+					<div class = "visible-md visible-lg">
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
+							</div>
+							<button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
+							<a ui-sref="signup" class="navbar-links">Signup</a>
+						</form>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<div class="visible-xs visible-sm">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a ui-sref="signup" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignUp</a></li>
+								<li><a ui-sref="signin" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignIn</a></li>
+							</ul>
 						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
-						</div>
-						<button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
-						<a ui-sref="signup" class="navbar-links">Signup</a>
-					</form>
+					</div>
 				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<div class="visible-xs visible-sm">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a ui-sref="signup" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignUp</a></li>
-							<li><a ui-sref="signin" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignIn</a></li>
+				<div ng-if="isAuthenticated()">
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav navbar-right visible-xs visible-sm">
+							<li><a href="#" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">Logout</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right visible-md visible-lg">
+							<li><a href="#" class="navbar-links" >Logout</a></li>
 						</ul>
 					</div>
 				</div>
@@ -58,8 +70,12 @@
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="/angular-socket-io/socket.js"></script>
+<script src="/satellizer/dist/satellizer.js"></script>
+<script src="/angular-flash-alert/dist/angular-flash.js"></script>
 
 <script src="/app.js"></script>
+<script src="/appLayout/config/config.js"></script>
+<script src="/auth/authmodule.js"></script>
 <script src="/appLayout/services/socketService.js"></script>
 <script src="/appLayout/controllers/navCtrl.js"></script>
 <script src="/signup/controller/SignupController.js"></script>
