@@ -2,7 +2,7 @@
 	<div class="col-md-6">
 		
 	</div>
-	<div class="col-md-6 col-sm-12">
+	<div class="col-md-6 col-sm-12 indexFormPadding">
 		<div class="row">
 			<form>
 				<div class="form-group">
@@ -13,7 +13,8 @@
 					<label for="pwd">Password:</label>
 					<input type="password" class="form-control" ng-model="user.password">
 				</div>
-				<button type="submit" class="btn btn-primary pull-right" ng-click="$parent.logUserIn(user)">Login</button>
+				<!-- <button type="submit" class="btn btn-primary pull-right" ng-click="$parent.logUserIn(user)">Login</button> -->
+				<button type="submit" class="btn btn-primary btn-block" ng-click="$parent.logUserIn(user)">Login</button>
 			</form>
 		</div>
 	</div>
