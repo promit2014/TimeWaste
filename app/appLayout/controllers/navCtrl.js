@@ -9,12 +9,17 @@ angular.module('TimeWaste')
     'Flash', 
     function($state,$scope,$http,socket,$auth,$log,Flash){
 
-        $scope.isAuthenticated = function() {
+        $scope.$parent.isAuthenticated = function() {
           return $auth.isAuthenticated();
       };
 
-      $scope.$parent.logUserIn = function(user){
-          $auth.login({
+      $scope.logout = function(){
+        $auth.logout();
+        $state.go('signin');
+    }
+
+    $scope.$parent.logUserIn = function(user){
+      $auth.login({
                     // username of the user entered in the login form
                     email: user.email,
                     // username of the user entered in the login form
@@ -23,6 +28,7 @@ angular.module('TimeWaste')
                 	$log.info('login success response --->', response);
                 	socket.connect();
                 	socket.emit('User-Loggedin',response.email);
+                    $state.go('dashboard');
                 }).catch(function(response) {
                 	var message = '<strong>'+response.data.error+'</strong>';
                 	var id = Flash.create('danger', message);
