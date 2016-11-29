@@ -9,17 +9,25 @@ var addSocket = function(serverInstance){
 
 		socket.on('User-Loggedin',function(data){
 			console.log("user logged In : "+data+" with socket id : "+socket.id);
-			connectedSockets[socket] = data ;
+			connectedSockets[socket.id] = {"user":data , "socket":socket} ;
 		});
 
 		socket.on('User-Loggedout',function(data){
-			delete connectedSockets[socket];
+			//io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			delete connectedSockets[socket.id];
 			console.log("user logged Out : "+data);
 		});
 
 		socket.on('disconnect',function(){
 			console.log("user disconnected : "+socket.id);
-			delete connectedSockets[socket];
+			//io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			delete connectedSockets[socket.id];
+		});
+
+		socket.on('all-Users',function(){
+			io.sockets.emit('userList',Object.keys(connectedSockets).map(function(key) {
+				return connectedSockets[key].user;
+			}));
 		});
 
 	});
