@@ -1,5 +1,6 @@
 var socketIO = require("socket.io");
 var connectedSockets = {};
+var msgArr = [];
 
 var addSocket = function(serverInstance){
 
@@ -32,6 +33,16 @@ var addSocket = function(serverInstance){
 			io.sockets.emit('userList',Object.keys(connectedSockets).map(function(key) {
 				return connectedSockets[key].user;
 			}));
+		});
+
+		socket.on('newMessage',function(newMsg){
+			msgArr.push(newMsg);
+			console.log("msgArr ---------> ",msgArr);
+			io.sockets.emit('MessageList',msgArr);
+		});
+
+		socket.on('getMessages',function(newMsg){
+			io.sockets.emit('MessageList',msgArr);
 		});
 
 	});

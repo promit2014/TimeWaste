@@ -22,7 +22,49 @@
 			</md-content>
 		</div>
 		<div layout="column" flex>
-			chatbox
+			<!-- <div layout="row" flex  layout-padding>
+				<div layout="column" flex>
+					<div layout-align="end center" layout="row" layout-padding>
+						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello </div>
+					</div>
+					<div layout-align="start center" layout="row" layout-padding>
+						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello </div>
+					</div>
+					<div layout-align="end center" layout="row" layout-padding>
+						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </div>
+					</div>
+					<div layout-align="start center" layout="row" layout-padding>
+						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </div>
+					</div>
+				</div>
+			</div> -->
+			<div layout="row" flex  layout-padding>
+				<div layout="column" flex>
+					<div ng-repeat="message in messages" >
+						<div layout-align="end center" layout="row" layout-padding ng-if="$index%2==0">
+							<div md-whiteframe="6" layout-padding flex="50">
+								<strong>{{message.user}}</strong> : {{message.msg}} 
+							</div>
+						</div>
+						<div layout-align="start center" layout="row" layout-padding ng-if="$index%2==1">
+							<div md-whiteframe="6" layout-padding flex="50">
+								<strong>{{message.user}}</strong> : {{message.msg}} 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div layout="row" >
+				<div layout="row" layout-align="center center" hide-sm hide-xs>
+					New Message
+				</div>
+				<div layout="row" flex layout-align="center center">
+					<input class="form-control"  ng-model="newMsg"/>
+				</div>
+				<div>
+					<md-button class="md-raised md-primary" aria-label="new Message" ng-click="sendMessage(newMsg)">Send</md-button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

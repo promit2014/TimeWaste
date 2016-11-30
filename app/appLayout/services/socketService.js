@@ -5,5 +5,6 @@ angular.module('TimeWaste')
 
 	socket.forward('userList');
 	socket.forward('userDisconnect');
+	socket.forward('MessageList');
 	return socket;
 }]);
