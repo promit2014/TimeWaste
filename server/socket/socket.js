@@ -13,14 +13,18 @@ var addSocket = function(serverInstance){
 		});
 
 		socket.on('User-Loggedout',function(data){
-			//io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			console.log("user logged Out :-------------> "+data);
+			if(connectedSockets[socket.id] != undefined){
+				io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			}
 			delete connectedSockets[socket.id];
-			console.log("user logged Out : "+data);
 		});
 
 		socket.on('disconnect',function(){
 			console.log("user disconnected : "+socket.id);
-			//io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			if(connectedSockets[socket.id] != undefined){
+				io.sockets.emit('userDisconnect',connectedSockets[socket.id].user);
+			}
 			delete connectedSockets[socket.id];
 		});
 

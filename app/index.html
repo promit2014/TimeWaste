@@ -68,12 +68,19 @@
 				<h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
 			</md-toolbar>
 			<md-content layout-padding ng-controller="LeftCtrl">
-				<md-button ng-click="close()" class="md-primary" hide-gt-md>
-					Close Sidenav Left
-				</md-button>
-				<p show-gt-md>
-					test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>test <br>
-				</p>
+				<md-card ng-repeat="user in userList">
+					<md-card-content layout="row">
+						<div >
+							<img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
+						</div>
+						<div layout="row" layout-align="center center" flex >
+							<p>{{user}}</p>
+						</div>
+						<div  >
+							<img src="/appLayout/images/online.png" class="chat-online">
+						</div>
+					</md-card-content>
+				</md-card>
 			</md-content>
 		</md-sidenav>
 	</section>
@@ -106,6 +113,7 @@
 <script src="/auth/authmodule.js"></script>
 <script src="/appLayout/services/socketService.js"></script>
 <script src="/appLayout/controllers/navCtrl.js"></script>
+<script src="/dashboard/controller/dashboardCtrl.js"></script>
 <script src="/appLayout/controllers/LeftCtrl.js"></script>
 <script src="/signup/controller/SignupController.js"></script>
 </html>

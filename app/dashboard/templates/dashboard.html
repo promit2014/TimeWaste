@@ -5,13 +5,20 @@
 			<md-toolbar class="md-theme-indigo">
 				<h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
 			</md-toolbar>
-			<md-content style="overflow-y: scroll;">
-				<md-card>
-					<md-card-content>
-						<p>Friend Name </p>
+			<md-content style="overflow-y: auto;">
+				<md-card ng-repeat="user in userList">
+					<md-card-content layout="row">
+						<div >
+							<img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
+						</div>
+						<div layout="row" layout-align="center center" flex >
+							<p>{{user}}</p>
+						</div>
+						<div  >
+							<img src="/appLayout/images/online.png" class="chat-online">
+						</div>
 					</md-card-content>
 				</md-card>
-
 			</md-content>
 		</div>
 		<div layout="column" flex>
