@@ -41,8 +41,13 @@ angular.module('TimeWaste')
                 "user" : $rootScope.activeUser,
                 "msg" : newMsg
             };
-            //$scope.messages.push(Message);
-            socket.emit('newMessage',Message);
+
+            if (newMsg != "") {
+                //$scope.messages.push(Message);
+                socket.emit('newMessage',Message);
+            }
+
+            $scope.newMsg = "";
         };
 
     }]);
