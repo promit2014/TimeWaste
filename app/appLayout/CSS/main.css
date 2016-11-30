@@ -33,3 +33,9 @@ md-sidenav {
 	height: 10px;
 	width: 10px;
 }
+
+.footer{
+	background-color: #2C3E50;
+	color: white;
+	padding: 8px;
+}

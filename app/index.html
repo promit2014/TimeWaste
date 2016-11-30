@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css"/>
 	<link rel="stylesheet" href="/appLayout/CSS/main.css"/>
 </head>
-<body>
+<body layout="column">
 	<!-- navbar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
 		<div class="container-fluid">
@@ -62,7 +62,6 @@
 
 
 	<section layout="row" flex >
-
 		<md-sidenav ng-if="isAuthenticated()" class="md-sidenav-left" md-component-id="left">
 			<md-toolbar class="md-theme-indigo">
 				<h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
@@ -86,12 +85,16 @@
 	</section>
 
 	<!-- container -->
-	<div layout="column" flex="grow" layout-fill >
+	<div layout="column" flex="grow" flex >
 		<div ui-view layout="column" flex></div>
 	</div>
 	<!-- container ends -->
 
-
+	<div class="footer" layout="row">
+		<div layout="row" flex-gt-md flex-xs="100" flex-sm="100" layout-align="center center">
+			Copyright &amp; Abhishek Chatterjee
+		</div>
+	</div>
 
 </body>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
