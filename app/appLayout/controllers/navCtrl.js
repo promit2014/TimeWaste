@@ -36,7 +36,7 @@ angular.module('TimeWaste')
                 }).then(function(response) {
                 	$log.info('login success response --->', response.data.email);
                     $rootScope.activeUser = response.data.email;
-                    $state.go('dashboard');
+                    $state.go('chat');
                 }).catch(function(response) {
                 	var message = '<strong>'+response.data.error+'</strong>';
                 	var id = Flash.create('danger', message);

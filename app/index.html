@@ -1,101 +1,105 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="TimeWaste" ng-cloak>
-<head >
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Time Waste</title>
-	<link rel="stylesheet" href="/angular-material/angular-material.css">
-	<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css"/>
-	<link rel="stylesheet" href="/appLayout/CSS/main.css"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Waste</title>
+    <link rel="stylesheet" href="/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/appLayout/CSS/main.css" />
 </head>
+
 <body layout="column">
-	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="#">
+    <!-- navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
 					TimeWaste 
 				</a>
-			</div>
-			<div class="container">
-				<div ng-if="!isAuthenticated()">
-					<div class = "visible-md visible-lg">
-						<form class="navbar-form navbar-right">
-							<div class="form-group">
-								<input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
-							</div>
-							<button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
-							<a ui-sref="signup" class="navbar-links">Signup</a>
-						</form>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<div class="visible-xs visible-sm">
-							<ul class="nav navbar-nav navbar-right text-center">
-								<li><a ui-sref="signup" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignUp</a></li>
-								<li><a ui-sref="signin" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignIn</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div ng-if="isAuthenticated()">
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav navbar-right visible-xs visible-sm">
-							<li><button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="logout()">Logout</button></li>
-							<li><button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="toggleLeft()">Online Menu</button></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right visible-md visible-lg">
-							<li ><button class="navbar-btn btn-link navbar-links" ng-click="logout()">Logout</button></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</nav>	<!-- navbar ends -->
-
-
-	<section layout="row" flex >
-		<md-sidenav ng-if="isAuthenticated()" class="md-sidenav-left" md-component-id="left">
-			<md-toolbar class="md-theme-indigo">
-				<h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
-			</md-toolbar>
-			<md-content layout-padding ng-controller="LeftCtrl">
-				<md-card ng-repeat="user in userList">
-					<md-card-content layout="row">
-						<div >
-							<img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
-						</div>
-						<div layout="row" layout-align="center center" flex >
-							<p>{{user}}</p>
-						</div>
-						<div  >
-							<img src="/appLayout/images/online.png" class="chat-online">
-						</div>
-					</md-card-content>
-				</md-card>
-			</md-content>
-		</md-sidenav>
-	</section>
-
-	<!-- container -->
-	<div layout="column" flex="grow" flex >
-		<div ui-view layout="column" flex></div>
-	</div>
-	<!-- container ends -->
-
-	<div class="footer" layout="row">
-		<div layout="row" flex-gt-md flex-xs="100" flex-sm="100" layout-align="center center">
-			Copyright &amp; Abhishek Chatterjee
-		</div>
-	</div>
-
+            </div>
+            <div class="container">
+                <div ng-if="!isAuthenticated()">
+                    <div class="visible-md visible-lg">
+                        <form class="navbar-form navbar-right">
+                            <div class="form-group">
+                                <input type="email" class="form-control" ng-model="user.email" placeholder="Enter email/username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" ng-model="user.password" placeholder="Enter password">
+                            </div>
+                            <button type="submit" class="btn btn-primary" ng-click="$parent.logUserIn(user)">Login</button>
+                            <a ui-sref="signup" class="navbar-links">Signup</a>
+                        </form>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <div class="visible-xs visible-sm">
+                            <ul class="nav navbar-nav navbar-right text-center">
+                                <li><a ui-sref="signup" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignUp</a></li>
+                                <li><a ui-sref="signin" class="navbar-links" data-toggle="collapse" data-target="#myNavbar">SignIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="isAuthenticated()">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right visible-xs visible-sm">
+                            <li>
+                                <button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="logout()">Logout</button>
+                            </li>
+                            <li>
+                                <button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="toggleLeft()">Online Friends</button>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+                            <li>
+                                <button class="navbar-btn btn-link navbar-links" ng-click="logout()">Logout</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar ends -->
+    <section layout="row" flex>
+        <md-sidenav ng-if="isAuthenticated()" class="md-sidenav-left" md-component-id="left">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
+            </md-toolbar>
+            <md-content layout-padding ng-controller="LeftCtrl">
+                <md-card ng-repeat="user in userList">
+                    <md-card-content layout="row">
+                        <div>
+                            <img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
+                        </div>
+                        <div layout="row" layout-align="center center" flex>
+                            <p>{{user}}</p>
+                        </div>
+                        <div>
+                            <img src="/appLayout/images/online.png" class="chat-online">
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </md-content>
+        </md-sidenav>
+    </section>
+    <!-- container -->
+    <div layout="column" flex="grow" flex>
+        <div ui-view layout="column" flex></div>
+    </div>
+    <!-- container ends -->
+    <div class="footer" layout="row">
+        <div layout="row" flex-gt-md flex-xs="100" flex-sm="100" layout-align="center center">
+            Copyright &amp; Abhishek Chatterjee
+        </div>
+    </div>
 </body>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 <script src="/jquery/dist/jquery.min.js"></script>
@@ -110,13 +114,13 @@
 <script src="/angular-socket-io/socket.js"></script>
 <script src="/satellizer/dist/satellizer.js"></script>
 <script src="/angular-flash-alert/dist/angular-flash.js"></script>
-
 <script src="/app.js"></script>
 <script src="/appLayout/config/config.js"></script>
 <script src="/auth/authmodule.js"></script>
 <script src="/appLayout/services/socketService.js"></script>
 <script src="/appLayout/controllers/navCtrl.js"></script>
-<script src="/dashboard/controller/dashboardCtrl.js"></script>
+<script src="/chat/controller/chatCtrl.js"></script>
 <script src="/appLayout/controllers/LeftCtrl.js"></script>
 <script src="/signup/controller/SignupController.js"></script>
+
 </html>
