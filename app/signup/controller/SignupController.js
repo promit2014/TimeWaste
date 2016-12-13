@@ -4,6 +4,14 @@ angular.module('TimeWaste')
 	$scope.createUser = function(){
 		$auth.signup({
 			email: $scope.user.email,
+			firstname:$scope.user.firstname,
+			lastname:$scope.user.Lastname,
+			dob:$scope.user.dob,
+			age:$scope.user.age,
+			gender:$scope.user.gender,
+			mobile:$scope.user.mobile,
+			city:$scope.user.city,
+			country:$scope.user.country,
 			password: $scope.user.password
 		}).then(function() {
 			var message = '<strong>Registration Successfull</strong>';

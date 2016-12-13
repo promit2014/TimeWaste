@@ -27,6 +27,7 @@ let SatellizerInterceptor = (function() {
                 /* Inclusion of all required tokens in the header
                 Any custom header can be included by using config.headers here*/
                 config.headers[_this.SatellizerConfig.tokenHeader] = token;
+                config.headers["Authorization"] = token;
                 /*config.headers['x-access-token'] = _this.SatellizerShared.getPayload()['auth-token'];*/
             }
             return config;
