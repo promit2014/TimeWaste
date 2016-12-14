@@ -1,9 +1,9 @@
 (function() {
     angular.module('TimeWaste')
-        .config(['$stateProvider', '$urlRouterProvider', '$qProvider', function($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$qProvider', function($stateProvider, $urlRouterProvider , $qProvider) {
 
             $urlRouterProvider.otherwise('/signin');
-
+            $qProvider.errorOnUnhandledRejections(false);
             /**
              * Helper auth functions
              */

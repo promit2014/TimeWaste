@@ -8,6 +8,42 @@ var UserSchema = new mongoose.Schema({
 		unique:true,
 		required:true
 	},
+	firstname:{
+		type:String,
+		required:true
+	},
+	lastname:{
+		type:String,
+		required:true
+	},
+	dob:{
+		type:String,
+		required:true
+	},
+	age:{
+		type:Number,
+		required:true
+	},
+	gender:{
+		type:String,
+		required:true
+	},
+	mobile:{
+		type:Number,
+		required:true
+	},
+	city:{
+		type:String,
+		required:true
+	},
+	country:{
+		type:String,
+		required:true
+	},
+	profilepic:{ 
+		type:String, 
+        default: 'http://sites.austincc.edu/jrnl/wp-content/uploads/sites/50/2015/07/placeholder.gif'
+    },
 	password:{
 		type:String,
 		required:true
