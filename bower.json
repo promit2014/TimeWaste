@@ -27,6 +27,7 @@
     "angular-socket-io": "#0.7.0",
     "satellizer": "#0.15.5",
     "angular-flash-alert": "#2.4.0",
-    "angular-material": "#1.1.1"
+    "angular-material": "#1.1.1",
+    "angularjs-datepicker": "^2.1.7"
   }
 }

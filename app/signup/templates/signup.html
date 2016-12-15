@@ -1,52 +1,56 @@
 <div layout="row" flex style="overflow: auto">
     <div class="col-md-6" hide-xs hide-sm>
-        <img src="http://www.emergencycareforyou.org/uploadedImages/New_Site/Home_Content/MedicalHistoryForm.jpg" class="img-responsive center-block main_page_image"> 
+        <img src="http://www.emergencycareforyou.org/uploadedImages/New_Site/Home_Content/MedicalHistoryForm.jpg" class="img-responsive center-block main_page_image">
     </div>
     <div class="col-md-6 col-sm-12" flex>
         <div class="row indexFormPadding">
             <form>
                 <div class="form-group">
                     <label for="email">Email address:</label>
-                    <input type="email" class="form-control" ng-model="user.email">
+                    <input type="email" class="form-control" ng-model="user.email"/>
                 </div>
                 <div class="form-group">
                     <label for="firstname">FirstName:</label>
-                    <input type="text" class="form-control" ng-model="user.firstname">
+                    <input type="text" class="form-control" ng-model="user.firstname"/>
                 </div>
                 <div class="form-group">
                     <label for="Lastname">LastName:</label>
-                    <input type="text" class="form-control" ng-model="user.Lastname">
+                    <input type="text" class="form-control" ng-model="user.Lastname"/>
                 </div>
                 <div class="form-group">
                     <label for="dob">Date Of Birth:</label>
-                    <input type="text" class="form-control" ng-model="user.dob">
+                    <!-- <input type="text" class="form-control" ng-model="user.dob"> -->
+                    <datepicker date-format="longDate">
+                        <input ng-model="user.dob" type="text" class="form-control"  />
+                    </datepicker>
                 </div>
                 <div class="form-group">
                     <label for="age">Age:</label>
-                    <input type="text" class="form-control" ng-model="user.age">
+                    <input type="text" class="form-control" ng-model="user.age"/>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <input type="text" class="form-control" ng-model="user.gender">
+                    <!-- <input type="text" class="form-control" ng-model="user.gender"> -->
+                    <select class="form-control" ng-model="user.gender">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="mobile">Mobile:</label>
-                    <input type="text" class="form-control" ng-model="user.mobile">
+                    <input type="text" class="form-control" ng-model="user.mobile"/>
                 </div>
-
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="city">City:</label>
-                    <input type="text" class="form-control" ng-model="user.city">
+                    <input type="text" class="form-control" ng-model="user.city"/>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="country">Country:</label>
-                    <input type="text" class="form-control" ng-model="user.country">
+                    <input type="text" class="form-control" ng-model="user.country"/>
                 </div>
-
-                
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" ng-model="user.password">
+                    <input type="password" class="form-control" ng-model="user.password"/>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block" ng-click="createUser()">Register</button>
             </form>

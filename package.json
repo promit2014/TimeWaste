@@ -6,6 +6,7 @@
     "url": "https://github.com/promit2014/TimeWaste.git"
   },
   "dependencies": {
+    "async": "^2.1.4",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "bower": "^1.4.1",
