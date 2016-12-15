@@ -85,8 +85,8 @@ var UserHistorySchema = new mongoose.Schema({
             required: true
         },
         uploadedOn: {
-            type: String,
-            required: true
+            type: Date,
+            default: new Date()
         },
         uploaderAddress: {
             type: String,

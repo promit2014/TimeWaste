@@ -2,6 +2,7 @@ var config = require("../config/configurations");
 var mongoose = require('mongoose');
 var User = require('../datasets/user');
 var UserHistory = require('../datasets/userHistory');
+var underscore = require("underscore");
 
 
 var userDataProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
@@ -21,12 +22,25 @@ var userHistoryUpdator = function(req, SuccessCB, ErrorCB, notFoundCB) {
             console.log("Error Out when Sign In --> ", err);
             ErrorCB({ error: "Error Occured During Login" });
         };
-        console.log("userDataProcessor----->", user);
+        console.log("userHistoryUpdator----->", user);
+        SuccessCB(user);
+    });
+};
+
+var userHistoryProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
+    UserHistory.findOne({ email: req.body.email }, function(err, user) {
+        if (err) {
+            console.log("Error Out when Sign In --> ", err);
+            ErrorCB({ error: "Error Occured During Login" });
+        };
+        underscore.sortBy(user.reports, 'uploadedOn').reverse();
+        console.log("userHistoryProcessor----->", user);
         SuccessCB(user);
     });
 };
 
 module.exports = {
     userDataProcessor: userDataProcessor,
-    userHistoryUpdator: userHistoryUpdator
+    userHistoryUpdator: userHistoryUpdator,
+    userHistoryProcessor: userHistoryProcessor
 };

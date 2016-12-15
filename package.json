@@ -15,7 +15,8 @@
     "mongoose": "^4.6.5",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
-    "socket.io": "^1.5.1"
+    "socket.io": "^1.5.1",
+    "underscore": "^1.8.3"
   },
   "main": "server.js",
   "devDependencies": {
