@@ -44,7 +44,8 @@ angular.module('TimeWaste')
                         gender:response.data.gender,
                         mobile:response.data.mobile,
                         city:response.data.city,
-                        country:response.data.country
+                        country:response.data.country,
+                        profilepic:response.data.profilepic
                     }
                     $state.go('home');
                 }).catch(function(response) {
