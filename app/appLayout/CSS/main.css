@@ -6,6 +6,10 @@ body {
     color: white !important;
 }
 
+.footer-links {
+    color: skyblue !important;
+}
+
 .navbar-links:hover {
     color: skyblue;
     text-decoration: none;

@@ -16,17 +16,17 @@ var userDataProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
 };
 
 var userHistoryUpdator = function(req, SuccessCB, ErrorCB, notFoundCB) {
-    UserHistory.findOneAndUpdate({ email: req.body.email }, { $push: { reports: req.body.report } },{safe: true, upsert: true, new : true},function (err, user) {
-    	if (err) {
+    UserHistory.findOneAndUpdate({ email: req.body.email }, { $push: { reports: req.body.report } }, { safe: true, upsert: true, new: true }, function(err, user) {
+        if (err) {
             console.log("Error Out when Sign In --> ", err);
             ErrorCB({ error: "Error Occured During Login" });
         };
         console.log("userDataProcessor----->", user);
         SuccessCB(user);
     });
-}
+};
 
 module.exports = {
     userDataProcessor: userDataProcessor,
-    userHistoryUpdator:userHistoryUpdator
-}
+    userHistoryUpdator: userHistoryUpdator
+};

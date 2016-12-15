@@ -28,6 +28,8 @@
     "satellizer": "#0.15.5",
     "angular-flash-alert": "#2.4.0",
     "angular-material": "#1.1.1",
-    "angularjs-datepicker": "^2.1.7"
+    "angularjs-datepicker": "^2.1.7",
+    "glyphicons": "~0.0.2",
+    "font-awesome": "~4.7.0"
   }
 }

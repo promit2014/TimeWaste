@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Time Waste</title>
+    <title>DocPro</title>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/angular-material/angular-material.css">
     <link rel="stylesheet" href="/angularjs-datepicker/src/css/angular-datepicker.css">
@@ -54,8 +55,8 @@
                             <li>
                                 <button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="logout()">Logout</button>
                             </li>
-                            <li><a ui-sref="home" class="navbar-links text-center">Home</a></li>
-                            <li><a ui-sref="chat" class="navbar-links text-center">Chat</a></li>
+                            <li><a ui-sref="home" class="navbar-links text-center" data-toggle="collapse" data-target="#myNavbar">Home</a></li>
+                            <li><a ui-sref="chat" class="navbar-links text-center" data-toggle="collapse" data-target="#myNavbar">Chat</a></li>
                             <li>
                                 <button class="navbar-btn btn-link navbar-links btn-block" data-toggle="collapse" data-target="#myNavbar" ng-click="toggleLeft()">Online Friends</button>
                             </li>
@@ -107,7 +108,59 @@
     <!-- container ends -->
     <div class="footer" layout="row">
         <div layout="row" flex-gt-md flex-xs="100" flex-sm="100" layout-align="center center">
-            Copyright &amp; Abhishek Chatterjee
+            <div class="container" layout-gt-md="row" layout="column">
+                <div flex layout="column" layout-align-gt-md="center start" layout-align="center center">
+                    <div style="color:orange;">Copyright &copy; Abhishek Chatterjee</div>
+                    <div style="color:lightblue;">
+                        <a ui-sref="home" class="footer-links">Home</a> |
+                        <a ui-sref="chat" class="footer-links">Chat</a> |
+                        <a ui-sref="home" class="footer-links">API</a> |
+                        <a ui-sref="home" class="footer-links">Contact Us</a>
+                    </div>
+                    <div layout="row" hide-gt-md>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-facebook footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-twitter footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-google-plus footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-quora footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-bookmark footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div style="padding-right: 10px;padding-left: 10px;">
+                            <i class="fa fa-youtube footer-links" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div flex layout="column" layout-align-gt-md="center end" layout-align="center center" hide-xs hide-sm>
+                    <div layout="row">
+                        <div layout-padding>
+                            <i class="fa fa-facebook footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div layout-padding>
+                            <i class="fa fa-twitter footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div layout-padding>
+                            <i class="fa fa-google-plus footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div layout-padding>
+                            <i class="fa fa-quora footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div layout-padding>
+                            <i class="fa fa-bookmark footer-links" aria-hidden="true"></i>
+                        </div>
+                        <div layout-padding>
+                            <i class="fa fa-youtube footer-links" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -123,7 +176,6 @@
 <script src="/satellizer/dist/satellizer.js"></script>
 <script src="/angular-flash-alert/dist/angular-flash.js"></script>
 <script src="/angularjs-datepicker/src/js/angular-datepicker.js"></script>
-
 <script src="/app.js"></script>
 <script src="/appLayout/config/config.js"></script>
 <script src="/auth/authmodule.js"></script>
@@ -134,7 +186,6 @@
 <script src="/signup/controller/SignupController.js"></script>
 <script src="/home/controller/homeCtrl.js"></script>
 <script src="/home/services/homeService.js"></script>
-
 <script src="/jquery/dist/jquery.min.js"></script>
 <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 
