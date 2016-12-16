@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/appLayout/CSS/main.css" />
 </head>
 
-<body layout="column">
+<body layout="column" flex style="background-color: #eceff1">
     <!-- navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
         <div class="container-fluid">
@@ -102,7 +102,7 @@
         </md-sidenav>
     </section>
     <!-- container -->
-    <div layout="column" flex="grow" flex>
+    <div layout="column" flex="grow">
         <div ui-view layout="column" flex></div>
     </div>
     <!-- container ends -->
@@ -164,9 +164,9 @@
         </div>
     </div>
 </body>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.1/moment-timezone-with-data.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/moment/min/moment.min.js"></script>
+<script src="/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
 <script src="/angular/angular.js"></script>
 <script src="/angular-animate/angular-animate.min.js"></script>
 <script src="/angular-aria/angular-aria.min.js"></script>

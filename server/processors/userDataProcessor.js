@@ -16,6 +16,17 @@ var userDataProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
     });
 };
 
+var userProPicUpdate = function(req, SuccessCB, ErrorCB, notFoundCB) {
+    User.findOneAndUpdate({ email: req.body.email }, { $set: { profilepic: req.body.newPicUrl } }, { safe: true, upsert: true, new: true }, function(err, user) {
+        if (err) {
+            console.log("Error Out when Sign In --> ", err);
+            ErrorCB({ error: "Error Occured During Login" });
+        };
+        console.log("userHistoryUpdator----->", user);
+        SuccessCB(user);
+    });
+};
+
 var userHistoryUpdator = function(req, SuccessCB, ErrorCB, notFoundCB) {
     UserHistory.findOneAndUpdate({ email: req.body.email }, { $push: { reports: req.body.report } }, { safe: true, upsert: true, new: true }, function(err, user) {
         if (err) {
@@ -41,5 +52,6 @@ var userHistoryProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
 module.exports = {
     userDataProcessor: userDataProcessor,
     userHistoryUpdator: userHistoryUpdator,
-    userHistoryProcessor: userHistoryProcessor
+    userHistoryProcessor: userHistoryProcessor,
+    userProPicUpdate: userProPicUpdate
 };

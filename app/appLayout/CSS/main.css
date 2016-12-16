@@ -45,7 +45,7 @@ md-sidenav {
 }
 
 .profile_page_image {
-    width: 30 0px;
+    width: 300px;
     height: 300px;
 }
 
@@ -92,6 +92,6 @@ md-sidenav {
 
 .panel-report > .panel-heading {
     color: white;
-    background-color: #0099CC;
+    background-color: rgba(0, 0, 0, 0.7);
     border-color: #ddd;
 }

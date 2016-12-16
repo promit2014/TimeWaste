@@ -9,8 +9,13 @@ angular.module('TimeWaste')
             return ($http.post("/reports", { "email": email }));
         }
 
+        var updateProfilePic = function(email, updateProPic) {
+            return ($http.post("/updateProPic", { "email": email, "newPicUrl": updateProPic }));
+        }
+
         return {
             getUserData: getUserData,
-            getUserHistory: getUserHistory
+            getUserHistory: getUserHistory,
+            updateProfilePic: updateProfilePic
         };
     }]);

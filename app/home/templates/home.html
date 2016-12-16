@@ -6,7 +6,7 @@
                 <div class="col-sm-3">
                     <a href="" data-toggle="modal" data-target="#profilepicmodal">
                         <div id="profileimgcontainer">
-                            <img class="profile_page_image img-responsive center-block" src="{{userdetails.profilepic}}" />
+                            <img class="profile_page_image img-responsive center-block img-thumbnail" src="{{userdetails.profilepic}}" />
                             <div layout-align="center center" layout="row">
                                 <h4>Change Profile picture</h4>
                             </div>
@@ -64,13 +64,13 @@
                         <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="email">New Profile Image Link:</label>
-                                    <input type="email" class="form-control" id="email">
+                                    <label for="newPicUrl">New Profile Image Link:</label>
+                                    <input type="text" class="form-control" id="newPicUrl" ng-model="newPicUrl">
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button class="btn btn-success" ng-click="updateProPic(newPicUrl)">Submit</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -80,11 +80,11 @@
         <div class="panel panel-danger panel-history">
             <div class="panel-heading text-center medicalHistory">Medical History</div>
             <div class="panel-body">
-                <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories">
+                <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories" style="padding-right: 0px;padding-left: 0px">
                     <div class="panel-heading text-center medicalHistory">
                         {{UserHistory.reportof}}
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="background-color: #eeeeee">
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
@@ -106,8 +106,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
+                    <div class="modal-footer" style="background-color: #eeeeee">
+                        <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
                     </div>
                 </div>
                 <!-- Modal for profile pic upload -->

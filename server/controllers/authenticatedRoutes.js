@@ -20,6 +20,20 @@ var autheticatedrouter = function(passport) {
         });
     });
 
+    router.post('/updateProPic', passport.authenticate('jwt', { session: false }), function(req, res) {
+        console.log("request from userData", req.body);
+        userdataprocessor.userProPicUpdate(req, function(data) {
+            console.log("Successfully found User");
+            res.status(200).json(data);
+        }, function(err) {
+            console.log("Error Out", err);
+            res.status(500).json({ error: "Error Occured" });
+        }, function(notFound) {
+            console.log("No User Exist");
+            res.status(401).json(notFound);
+        });
+    });
+
     router.post('/newReport', passport.authenticate('jwt', { session: false }), function(req, res) {
         console.log("request from newReport", req.body);
     });
