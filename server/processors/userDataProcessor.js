@@ -33,7 +33,6 @@ var userHistoryProcessor = function(req, SuccessCB, ErrorCB, notFoundCB) {
             console.log("Error Out when Sign In --> ", err);
             ErrorCB({ error: "Error Occured During Login" });
         };
-        underscore.sortBy(user.reports, 'uploadedOn').reverse();
         console.log("userHistoryProcessor----->", user);
         SuccessCB(user);
     });

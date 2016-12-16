@@ -7,11 +7,11 @@ body {
 }
 
 .footer-links {
-    color: skyblue !important;
+    color: SkyBlue !important;
 }
 
 .navbar-links:hover {
-    color: skyblue;
+    color: SkyBlue;
     text-decoration: none;
 }
 
@@ -45,11 +45,53 @@ md-sidenav {
 }
 
 .profile_page_image {
-    width: 300px;
+    width: 30 0px;
     height: 300px;
 }
 
 .main_page_image {
     height: 400px;
     width: 680px;
+}
+
+.row-lebel {
+    color: OrangeRed;
+    font-weight: 600;
+}
+
+.row-value {
+    color: SteelBlue;
+    font-weight: 600;
+}
+
+#profileimgcontainer {
+    position: relative;
+}
+
+#profileimgcontainer > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: transparent;
+    transition: 1s;
+}
+
+#profileimgcontainer > div:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.panel-history > .panel-heading {
+    color: white;
+    background-color: #00C851;
+    border-color: #ddd;
+}
+
+.panel-report > .panel-heading {
+    color: white;
+    background-color: #0099CC;
+    border-color: #ddd;
 }

@@ -22,6 +22,10 @@ var autheticatedrouter = function(passport) {
 
     router.post('/newReport', passport.authenticate('jwt', { session: false }), function(req, res) {
         console.log("request from newReport", req.body);
+    });
+
+    router.post('/newSubReport', passport.authenticate('jwt', { session: false }), function(req, res) {
+        console.log("request from newSubReport", req.body);
         userdataprocessor.userHistoryUpdator(req, function(data) {
             console.log("Successfully found User");
             res.status(200).json(data);

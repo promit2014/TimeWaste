@@ -1,47 +1,152 @@
-<div layout-padding style="overflow: auto">
-    <div class="panel panel-primary" layout-padding>
-        <div class="panel-heading text-center">Profile</div>
-        <div class="panel-body">
-            <div class="col-sm-3">
-                <img class="profile_page_image img-responsive center-block" src="{{userdetails.profilepic}}" />
+<div style="overflow: auto">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">Profile</div>
+            <div class="panel-body">
+                <div class="col-sm-3">
+                    <a href="" data-toggle="modal" data-target="#profilepicmodal">
+                        <div id="profileimgcontainer">
+                            <img class="profile_page_image img-responsive center-block" src="{{userdetails.profilepic}}" />
+                            <div layout-align="center center" layout="row">
+                                <h4>Change Profile picture</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-9">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td class="row-lebel">FirstName</td>
+                                <td class="row-value">{{userdetails.firstname}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">LastName</td>
+                                <td class="row-value">{{userdetails.lastname}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">Date Of Birth</td>
+                                <td class="row-value">{{userdetails.dob}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">Age</td>
+                                <td class="row-value">{{userdetails.age}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">Gender</td>
+                                <td class="row-value">{{userdetails.gender}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">Mobile</td>
+                                <td class="row-value">{{userdetails.mobile}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">City</td>
+                                <td class="row-value">{{userdetails.city}}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-lebel">Country</td>
+                                <td class="row-value">{{userdetails.country}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-sm-9">
-                <table class="table table-hover">
-                    <tbody>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>{{userdetails.firstname}}</td>
-                        </tr>
-                        <tr>
-                            <td>LastName</td>
-                            <td>{{userdetails.lastname}}</td>
-                        </tr>
-                        <tr>
-                            <td>Date Of Birth</td>
-                            <td>{{userdetails.dob}}</td>
-                        </tr>
-                        <tr>
-                            <td>Age</td>
-                            <td>{{userdetails.age}}</td>
-                        </tr>
-                        <tr>
-                            <td>Gender</td>
-                            <td>{{userdetails.gender}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mobile</td>
-                            <td>{{userdetails.mobile}}</td>
-                        </tr>
-                        <tr>
-                            <td>City</td>
-                            <td>{{userdetails.city}}</td>
-                        </tr>
-                        <tr>
-                            <td>Country</td>
-                            <td>{{userdetails.country}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Modal for profile pic upload -->
+            <div id="profilepicmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Change Profile Picture</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email">New Profile Image Link:</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-danger panel-history">
+            <div class="panel-heading text-center medicalHistory">Medical History</div>
+            <div class="panel-body">
+                <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories">
+                    <div class="panel-heading text-center medicalHistory">
+                        {{UserHistory.reportof}}
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>{{UserHistory.uploadedOn}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Symptoms</td>
+                                    <td>{{UserHistory.symptoms}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="color:red;">Conclusion</td>
+                                    <td>{{UserHistory.conclusion}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Uploaded By</td>
+                                    <td>{{UserHistory.uploadedBy}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
+                    </div>
+                </div>
+                <!-- Modal for profile pic upload -->
+                <div id="historyModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Report</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td>12/123/123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Symptoms</td>
+                                            <td>adfa</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color:red;">Conclusion</td>
+                                            <td>sgsdf</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Uploaded By</td>
+                                            <td>dfg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
