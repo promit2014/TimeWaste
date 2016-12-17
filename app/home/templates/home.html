@@ -79,7 +79,7 @@
         </div>
         <div class="panel panel-danger panel-history">
             <div class="panel-heading text-center medicalHistory">Medical History</div>
-            <div class="panel-body" layout="row" layout-wrap layout-align="center center" style="background-color: #616161">
+            <div class="panel-body" layout-gt-md="row" layout="column" layout-wrap layout-align="center center" style="background-color: #616161">
                 <!-- <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories" style="padding-right: 0px;padding-left: 0px">
                     <div class="panel-heading text-center medicalHistory">
                         {{UserHistory.reportof}}
@@ -110,7 +110,7 @@
                         <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
                     </div>
                 </div> -->
-                <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch ng-repeat="UserHistory in UserHistories" flex="30">
+                <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch ng-repeat="UserHistory in UserHistories" flex-gt-md="30" flex>
                     <md-card-header style="background-color: #4285F4;">
                         <md-card-header-text>
                             <span class="md-title">{{UserHistory.reportof}}</span>
