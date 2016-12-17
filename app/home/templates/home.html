@@ -113,11 +113,11 @@
                             </table>
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="end center">
-                            <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal">Read-More</md-button>
+                            <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal" ng-click="reportDetailsPopulator(UserHistory)">Read-More</md-button>
                         </md-card-actions>
                     </md-card>
                 </div>
-                <!-- Modal for profile pic upload -->
+                <!-- Modal for History Details -->
                 <div id="historyModal" class="modal fade" role="dialog ">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -130,20 +130,44 @@
                                 <table class="table table-hover">
                                     <tbody>
                                         <tr>
+                                            <td>Report Of</td>
+                                            <td>{{reportDetails.reportof}}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Date</td>
-                                            <td>12/123/123</td>
+                                            <td>{{reportDetails.uploadedOn}}</td>
                                         </tr>
                                         <tr>
                                             <td>Symptoms</td>
-                                            <td>adfa</td>
+                                            <td>{{reportDetails.symptoms}}</td>
                                         </tr>
                                         <tr>
                                             <td style="color:red;">Conclusion</td>
-                                            <td>sgsdf</td>
+                                            <td>{{reportDetails.conclusion}}</td>
                                         </tr>
                                         <tr>
                                             <td>Uploaded By</td>
-                                            <td>dfg</td>
+                                            <td>{{reportDetails.uploadedBy}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Uploader Address</td>
+                                            <td>{{reportDetails.uploaderAddress}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Uploaded Contact</td>
+                                            <td>{{reportDetails.uploaderContact}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Breif description</td>
+                                            <td>{{reportDetails.briefDesc}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prescribed Doctor</td>
+                                            <td>{{reportDetails.prescribedDoctor}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Doctor Address</td>
+                                            <td>{{reportDetails.prescribedDoctorAddress}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

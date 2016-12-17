@@ -3,6 +3,7 @@ angular.module('TimeWaste')
 
         console.log(" $scope.$parent.userdetails", $scope.$parent.userdetails);
 
+
         if (angular.isUndefined($scope.$parent.userdetails)) {
             var getUserDataResponse = homeService.getUserData($rootScope.activeUser);
             getUserDataResponse.then(function(res) {
@@ -23,6 +24,10 @@ angular.module('TimeWaste')
                 $scope.$parent.userdetails.profilepic = newPicUrl;
                 $scope.newPicUrl = "";
             });
+        }
+
+        $scope.reportDetailsPopulator = function(history) {
+            $scope.reportDetails = history;
         }
 
         $scope.getHistory();
