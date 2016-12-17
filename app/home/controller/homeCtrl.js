@@ -21,7 +21,7 @@ angular.module('TimeWaste')
             var updateProfilePicResponse = homeService.updateProfilePic($rootScope.activeUser, newPicUrl);
             updateProfilePicResponse.then(function(res) {
                 $scope.$parent.userdetails.profilepic = newPicUrl;
-                $("#profilepicmodal").modal()
+                $scope.newPicUrl = "";
             });
         }
 

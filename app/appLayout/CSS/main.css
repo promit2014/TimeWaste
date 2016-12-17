@@ -86,12 +86,11 @@ md-sidenav {
 
 .panel-history > .panel-heading {
     color: white;
-    background-color: #00C851;
+    /*background-color: #00C851;*/
+    background-color: #00897b;
     border-color: #ddd;
 }
 
-.panel-report > .panel-heading {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-color: #ddd;
+.panel-report tbody tr:hover td {
+    background: #4285F4;
 }

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/appLayout/CSS/main.css" />
 </head>
 
-<body layout="column" flex style="background-color: #eceff1">
+<body layout="column" flex style="background-color: rgba(0, 0, 0, 0.7)">
     <!-- navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navCtrl">
         <div class="container-fluid">
@@ -63,7 +63,7 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right visible-md visible-lg">
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UserName<span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{activeUser}}<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a ng-click="logout()">Logout</a>
@@ -111,7 +111,7 @@
             <div class="container" layout-gt-md="row" layout="column">
                 <div flex layout="column" layout-align-gt-md="center start" layout-align="center center">
                     <div style="color:orange;">Copyright &copy; Abhishek Chatterjee</div>
-                    <div style="color:lightblue;">
+                    <div style="color:lightBlue;">
                         <a ui-sref="home" class="footer-links">Home</a> |
                         <a ui-sref="chat" class="footer-links">Chat</a> |
                         <a ui-sref="home" class="footer-links">API</a> |
@@ -164,7 +164,8 @@
         </div>
     </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/moment/min/moment.min.js"></script>
 <script src="/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
 <script src="/angular/angular.js"></script>
@@ -178,8 +179,10 @@
 <script src="/satellizer/dist/satellizer.js"></script>
 <script src="/angular-flash-alert/dist/angular-flash.js"></script>
 <script src="/angular-datepicker/dist/angular-datepicker.js"></script>
+<!-- user js files -->
 <script src="/app.js"></script>
 <script src="/appLayout/config/config.js"></script>
+<script src="/appLayout/config/themeConfig.js"></script>
 <script src="/auth/authmodule.js"></script>
 <script src="/appLayout/services/socketService.js"></script>
 <script src="/appLayout/controllers/navCtrl.js"></script>
@@ -188,7 +191,5 @@
 <script src="/signup/controller/SignupController.js"></script>
 <script src="/home/controller/homeCtrl.js"></script>
 <script src="/home/services/homeService.js"></script>
-<script src="/jquery/dist/jquery.min.js"></script>
-<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>

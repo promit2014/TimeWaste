@@ -70,7 +70,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success" ng-click="updateProPic(newPicUrl)">Submit</button>
+                            <button class="btn btn-success" ng-click="updateProPic(newPicUrl)" data-dismiss="modal">Submit</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -79,8 +79,8 @@
         </div>
         <div class="panel panel-danger panel-history">
             <div class="panel-heading text-center medicalHistory">Medical History</div>
-            <div class="panel-body">
-                <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories" style="padding-right: 0px;padding-left: 0px">
+            <div class="panel-body" layout="row" layout-wrap layout-align="center center" style="background-color: #616161">
+                <!-- <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories" style="padding-right: 0px;padding-left: 0px">
                     <div class="panel-heading text-center medicalHistory">
                         {{UserHistory.reportof}}
                     </div>
@@ -109,7 +109,42 @@
                     <div class="modal-footer" style="background-color: #eeeeee">
                         <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
                     </div>
-                </div>
+                </div> -->
+                <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch ng-repeat="UserHistory in UserHistories" flex="30">
+                    <md-card-header style="background-color: #4285F4;">
+                        <md-card-header-text>
+                            <span class="md-title">{{UserHistory.reportof}}</span>
+                            <span class="md-subhead">{{UserHistory.uploadedOn}}</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <!-- <span class="md-headline">{{UserHistory.reportof}}</span> -->
+                            <span class="md-subhead">{{UserHistory.conclusion}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <table class="table table-hover panel-report">
+                            <tbody>
+                                <tr>
+                                    <td>Symptoms</td>
+                                    <td>{{UserHistory.symptoms}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="color:red;">Conclusion</td>
+                                    <td>{{UserHistory.conclusion}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Uploaded By</td>
+                                    <td>{{UserHistory.uploadedBy}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal">Read-More</md-button>
+                    </md-card-actions>
+                </md-card>
                 <!-- Modal for profile pic upload -->
                 <div id="historyModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
