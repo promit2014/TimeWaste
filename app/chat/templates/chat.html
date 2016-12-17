@@ -1,70 +1,54 @@
-<div layout="column" flex layout-fill >
-	<div layout="row"  flex>
-		<div layout="column" flex-gt-md="20" hide-xs hide-sm >
-			<md-toolbar class="md-theme-indigo">
-				<h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
-			</md-toolbar>
-			<md-content style="overflow-y: auto;">
-				<md-card ng-repeat="user in userList">
-					<md-card-content layout="row">
-						<div >
-							<img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
-						</div>
-						<div layout="row" layout-align="center center" flex >
-							<p>{{user}}</p>
-						</div>
-						<div  >
-							<img src="/appLayout/images/online.png" class="chat-online">
-						</div>
-					</md-card-content>
-				</md-card>
-			</md-content>
-		</div>
-		<md-divider ></md-divider>
-		<div layout="column" flex>
-			<!-- <div layout="row" flex  layout-padding>
-				<div layout="column" flex>
-					<div layout-align="end center" layout="row" layout-padding>
-						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello </div>
-					</div>
-					<div layout-align="start center" layout="row" layout-padding>
-						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello </div>
-					</div>
-					<div layout-align="end center" layout="row" layout-padding>
-						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </div>
-					</div>
-					<div layout-align="start center" layout="row" layout-padding>
-						<div md-whiteframe="6" layout-padding flex="50"><strong>test</strong> : hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello </div>
-					</div>
-				</div>
-			</div> -->
-			<div layout="row" flex  layout-padding>
-				<div layout="column" flex style="overflow-y: auto;">
-					<div ng-repeat="message in messages" >
-						<div layout-align="end center" layout="row" layout-padding ng-if="$index%2==0">
-							<div md-whiteframe="6" layout-padding flex="50">
-								<strong>{{message.user}}</strong> : {{message.msg}} 
-							</div>
-						</div>
-						<div layout-align="start center" layout="row" layout-padding ng-if="$index%2==1">
-							<div md-whiteframe="6" layout-padding flex="50">
-								<strong>{{message.user}}</strong> : {{message.msg}} 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div layout="row" >
-				<div layout="row" layout-align="center center" hide-sm hide-xs>
-					New Message
-				</div>
-				<div layout="row" flex layout-align="center center">
-					<input class="form-control"  ng-model="newMsg"/>
-				</div>
-				<div>
-					<md-button class="md-raised md-primary" aria-label="new Message" ng-click="sendMessage(newMsg)">Send</md-button>
-				</div>
-			</div>
-		</div>
-	</div>
+<div layout="column" flex layout-fill>
+    <div layout="row" flex>
+        <div layout="column" flex-gt-md="20" hide-xs hide-sm style="background-color: #616161;">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools" layout-align="center center">Online Friends</h1>
+            </md-toolbar>
+            <md-content style="overflow-y: auto;background-color: #616161;">
+                <md-card ng-repeat="user in userList">
+                    <md-card-content layout="row">
+                        <div>
+                            <img src="http://smartchicspray.com/wp-content/uploads/2016/01/Profile-Placeholder-Male.png" class="profile-image-chat" />
+                        </div>
+                        <div layout="row" layout-align="center center" flex>
+                            <p>{{user}}</p>
+                        </div>
+                        <div>
+                            <img src="/appLayout/images/online.png" class="chat-online">
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </md-content>
+        </div>
+        <md-divider></md-divider>
+        <div layout="column" flex>
+            <div layout="row" flex layout-padding>
+                <div layout="column" flex style="overflow-y: auto;">
+                    <div ng-repeat="message in messages">
+                        <div layout-align="end center" layout="row" layout-padding ng-if="$index%2==0">
+                            <div md-whiteframe="6" layout-padding flex="50" class="chatMessage">
+                                <strong>{{message.user}}</strong> : {{message.msg}}
+                            </div>
+                        </div>
+                        <div layout-align="start center" layout="row" layout-padding ng-if="$index%2==1">
+                            <div md-whiteframe="6" layout-padding flex="50" style="background-color: white;" class="chatMessage">
+                                <strong>{{message.user}}</strong> : {{message.msg}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div layout="row">
+                <div layout="row" layout-align="center center" hide-sm hide-xs style="color:white">
+                    &nbsp; New Message &nbsp;
+                </div>
+                <div layout="row" flex layout-align="center center">
+                    <input class="form-control" ng-model="newMsg" />
+                </div>
+                <div>
+                    <md-button class="md-raised md-primary" aria-label="new Message" ng-click="sendMessage(newMsg)">Send</md-button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

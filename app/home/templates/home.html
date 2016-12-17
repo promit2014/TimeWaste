@@ -57,7 +57,7 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header modal-header-success">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Change Profile Picture</h4>
                         </div>
@@ -79,78 +79,50 @@
         </div>
         <div class="panel panel-danger panel-history">
             <div class="panel-heading text-center medicalHistory">Medical History</div>
-            <div class="panel-body" layout-gt-md="row" layout="column" layout-wrap layout-align="center center" style="background-color: #616161">
-                <!-- <div class="panel panel-danger panel-report col-sm-4" ng-repeat="UserHistory in UserHistories" style="padding-right: 0px;padding-left: 0px">
-                    <div class="panel-heading text-center medicalHistory">
-                        {{UserHistory.reportof}}
-                    </div>
-                    <div class="panel-body" style="background-color: #eeeeee">
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>Date</td>
-                                    <td>{{UserHistory.uploadedOn}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Symptoms</td>
-                                    <td>{{UserHistory.symptoms}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="color:red;">Conclusion</td>
-                                    <td>{{UserHistory.conclusion}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Uploaded By</td>
-                                    <td>{{UserHistory.uploadedBy}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer" style="background-color: #eeeeee">
-                        <button type="button" class="btn btn-info btn-default" data-toggle="modal" data-target="#historyModal">ReadMore</button>
-                    </div>
-                </div> -->
-                <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch ng-repeat="UserHistory in UserHistories" flex-gt-md="30" flex>
-                    <md-card-header style="background-color: #4285F4;">
-                        <md-card-header-text>
-                            <span class="md-title">{{UserHistory.reportof}}</span>
-                            <span class="md-subhead">{{UserHistory.uploadedOn}}</span>
-                        </md-card-header-text>
-                    </md-card-header>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <!-- <span class="md-headline">{{UserHistory.reportof}}</span> -->
-                            <span class="md-subhead">{{UserHistory.conclusion}}</span>
-                        </md-card-title-text>
-                    </md-card-title>
-                    <md-card-content>
-                        <table class="table table-hover panel-report">
-                            <tbody>
-                                <tr>
-                                    <td>Symptoms</td>
-                                    <td>{{UserHistory.symptoms}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="color:red;">Conclusion</td>
-                                    <td>{{UserHistory.conclusion}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Uploaded By</td>
-                                    <td>{{UserHistory.uploadedBy}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </md-card-content>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal">Read-More</md-button>
-                    </md-card-actions>
-                </md-card>
+            <div class="panel-body" layout-gt-md="row" layout="column" layout-wrap layout-align="center center" style="background-color: rgba(158, 158, 158, 0.3);">
+                <div layout="column" ng-repeat="UserHistory in UserHistories" flex-gt-md="30" flex style="min-height: 450px; max-height: 450px;" layout-padding>
+                    <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch flex layout-fill>
+                        <md-card-header style="background-color: #4285F4;">
+                            <md-card-header-text>
+                                <span class="md-title">{{(UserHistory.reportof.length>50)?UserHistory.reportof.substring(0, 50)+' .....':UserHistory.reportof}}</span>
+                                <span class="md-subhead">{{(UserHistory.uploadedOn.length>50)?UserHistory.uploadedOn.substring(0, 50)+' .....':UserHistory.uploadedOn}}</span>
+                            </md-card-header-text>
+                        </md-card-header>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <!-- <span class="md-headline">{{UserHistory.reportof}}</span> -->
+                                <span class="md-subhead" style="color:orange;text-align: center;">{{(UserHistory.conclusion.length>50)?UserHistory.conclusion.substring(0, 50)+' .....':UserHistory.conclusion}}</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <table class="table table-hover panel-report">
+                                <tbody>
+                                    <tr>
+                                        <td>Symptoms</td>
+                                        <td>{{(UserHistory.symptoms.length>25)?UserHistory.symptoms.substring(0, 25)+' .....':UserHistory.symptoms}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:orange;">Conclusion</td>
+                                        <td>{{(UserHistory.conclusion.length>40)?UserHistory.conclusion.substring(0, 40)+' .....':UserHistory.conclusion}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uploaded By</td>
+                                        <td>{{(UserHistory.uploadedBy.length>25)?UserHistory.uploadedBy.substring(0, 40)+' .....':UserHistory.uploadedBy}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal">Read-More</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
                 <!-- Modal for profile pic upload -->
-                <div id="historyModal" class="modal fade" role="dialog">
+                <div id="historyModal" class="modal fade" role="dialog ">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header modal-header-info">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title">Report</h4>
                             </div>
