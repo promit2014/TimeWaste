@@ -78,126 +78,17 @@
             </div>
         </div>
         <div class="panel panel-danger panel-history">
-            <div class="panel-heading text-center medicalHistory">Medical History</div>
-            <div class="panel-body" layout-gt-md="row" layout="column" layout-wrap layout-align="center center" style="background-color: rgba(158, 158, 158, 0.3);">
-                <div layout="column" ng-repeat="UserHistory in UserHistories" flex-gt-md="30" flex style="min-height: 450px; max-height: 450px;" layout-padding>
-                    <md-card md-theme="{{ true ? 'dark-blue' : 'default' }}" md-theme-watch flex layout-fill>
-                        <md-card-header style="background-color: #4285F4;">
-                            <md-card-header-text>
-                                <span class="md-title">{{(UserHistory.reportof.length>50)?UserHistory.reportof.substring(0, 50)+' .....':UserHistory.reportof}}</span>
-                                <span class="md-subhead">{{(UserHistory.uploadedOn.length>50)?UserHistory.uploadedOn.substring(0, 50)+' .....':UserHistory.uploadedOn}}</span>
-                            </md-card-header-text>
-                        </md-card-header>
-                        <md-card-title>
-                            <md-card-title-text>
-                                <!-- <span class="md-headline">{{UserHistory.reportof}}</span> -->
-                                <span class="md-subhead" style="color:orange;text-align: center;">{{(UserHistory.conclusion.length>50)?UserHistory.conclusion.substring(0, 50)+' .....':UserHistory.conclusion}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-                            <table class="table table-hover panel-report">
-                                <tbody>
-                                    <tr>
-                                        <td>Symptoms</td>
-                                        <td>{{(UserHistory.symptoms.length>25)?UserHistory.symptoms.substring(0, 25)+' .....':UserHistory.symptoms}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="color:orange;">Conclusion</td>
-                                        <td>{{(UserHistory.conclusion.length>40)?UserHistory.conclusion.substring(0, 40)+' .....':UserHistory.conclusion}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Uploaded By</td>
-                                        <td>{{(UserHistory.uploadedBy.length>25)?UserHistory.uploadedBy.substring(0, 40)+' .....':UserHistory.uploadedBy}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <md-button class="md-raised md-warn" data-toggle="modal" data-target="#historyModal" ng-click="reportDetailsPopulator(UserHistory)">Read-More</md-button>
-                        </md-card-actions>
-                    </md-card>
+            <div class="panel-heading text-center medicalHistory">{{!homeCtrl.showPrescriptionDetailFlag?'Medical History':homeCtrl.activePrescription.prescribedDoctor}}</div>
+            <div class="panel-body" style="background-color: rgba(158, 158, 158, 0.3);" layout="column">
+                <div layout-gt-md="row" layout="column" layout-wrap layout-align="center center">
+                    <!-- Component to display the details of a prescription -->
+                    <prescription-detail report-array="homeCtrl.activePrescription.reports" showflag="homeCtrl.showPrescriptionDetailFlag" flex layout-gt-md="row" layout-wrap layout-align="center center" ng-if="homeCtrl.showPrescriptionDetailFlag"></prescription-detail>
+                    <!-- Component to display the list of prescriptions available -->
+                    <prescription-list prescriptions="UserHistories" selected="homeCtrl.activePrescription" showflag="homeCtrl.showPrescriptionDetailFlag" flex layout-gt-md="row" layout-wrap layout-align="center
+ center" ng-if="!homeCtrl.showPrescriptionDetailFlag"></prescription-list>
                 </div>
-                <!-- Modal for History Details -->
-                <div id="historyModal" class="modal fade" role="dialog ">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header modal-header-info">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Report</h4>
-                            </div>
-                            <div class="modal-body" layout="column">
-                                <table class="table table-hover" ng-if="!showPic">
-                                    <tbody>
-                                        <tr>
-                                            <td>Report Of</td>
-                                            <td>{{reportDetails.reportof}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Date</td>
-                                            <td>{{reportDetails.uploadedOn}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Symptoms</td>
-                                            <td>{{reportDetails.symptoms}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color:red;">Conclusion</td>
-                                            <td>{{reportDetails.conclusion}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Uploaded By</td>
-                                            <td>{{reportDetails.uploadedBy}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Uploader Address</td>
-                                            <td>{{reportDetails.uploaderAddress}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Uploaded Contact</td>
-                                            <td>{{reportDetails.uploaderContact}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Breif description</td>
-                                            <td>{{reportDetails.briefDesc}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescribed Doctor</td>
-                                            <td>{{reportDetails.prescribedDoctor}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doctor Address</td>
-                                            <td>{{reportDetails.prescribedDoctorAddress}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div ng-if="showPic" style="overflow: auto" align="center center">
-                                    <div layout="row" layout-align="end center">
-                                        <md-button ng-click="showDetail()" class="md-raised md-warn">View Details</md-button>
-                                    </div>
-                                    <div layout="row" layout-align="center center">
-                                        <b><h4>{{activePicture.title}}</h4></b>
-                                    </div>
-                                    <div>
-                                        <img src="{{activePicture.href}}" class="reportActiveImage img-responsive img-thumbnail">
-                                    </div>
-                                </div>
-                                <div layout-padding layout="column">
-                                    <div layout="row" layout-align="center center" style="background-color: lightGrey">
-                                        <h4>Report Images</h4>
-                                    </div>
-                                    <div layout- "row" layout-wrap>
-                                        <a href="#" ng-repeat="link in links" ng-click="displayPicModal(link)">
-                                            <img src="{{ link.href }}" class="reportImagesThubnails img-responsive img-thumbnail" layout-padding>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
+                <div layout-align="center center" layout="row" ng-if="homeCtrl.showPrescriptionDetailFlag">
+                    <md-button class="md-raised md-primary" ng-click="homeCtrl.showPrescriptionDetailFlag=!homeCtrl.showPrescriptionDetailFlag">Back to Prescriptions</md-button>
                 </div>
             </div>
         </div>

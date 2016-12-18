@@ -36,6 +36,13 @@ var autheticatedrouter = function(passport) {
 
     router.post('/newReport', passport.authenticate('jwt', { session: false }), function(req, res) {
         console.log("request from newReport", req.body);
+        userdataprocessor.userHistoryCreator(req, function(data) {
+            console.log("Successfully found User");
+            res.status(201).json(data);
+        }, function(err) {
+            console.log("Error Out", err);
+            res.status(500).json({ error: "Error Occured" });
+        });
     });
 
     router.post('/newSubReport', passport.authenticate('jwt', { session: false }), function(req, res) {

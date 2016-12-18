@@ -1,1 +1,1 @@
-angular.module('TimeWaste', ['ui.router', 'btford.socket-io', 'satellizer', 'ngFlash', 'ngMaterial', 'ngMessages', 'datePicker', 'ngShadowbox']);
+angular.module('TimeWaste', ['ngMaterial', 'ngAnimate', 'ngMessages', 'ui.router', 'btford.socket-io', 'satellizer', 'ngFlash']);

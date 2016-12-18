@@ -4,7 +4,6 @@ var UserHistorySchema = new mongoose.Schema({
     email: {
         type: String,
         lowercase: true,
-        unique: true,
         required: true
     },
     firstname: {
@@ -36,6 +35,30 @@ var UserHistorySchema = new mongoose.Schema({
         required: true
     },
     country: {
+        type: String,
+        required: true
+    },
+    symptoms: {
+        type: String,
+        required: true
+    },
+    briefDesc: {
+        type: String,
+        required: true
+    },
+    longDesc: {
+        type: String,
+        required: true
+    },
+    prescribedDoctor: {
+        type: String,
+        required: true
+    },
+    prescribedDoctorAddress: {
+        type: String,
+        required: true
+    },
+    prescribedDoctorContact: {
         type: String,
         required: true
     },
@@ -100,6 +123,11 @@ var UserHistorySchema = new mongoose.Schema({
         },
         metadata: { type: Array, default: [] }
     }]
+}, {
+    timestamps: {
+        createdAt: 'CreatedOn',
+        updatedAt: 'UpdatedOn'
+    }
 });
 
 module.exports = mongoose.model('UserHistory', UserHistorySchema);

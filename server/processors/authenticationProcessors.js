@@ -32,7 +32,50 @@ var signupProcessor = function(req, SuccessCB, ErrorCB) {
         gender: req.body.gender,
         mobile: req.body.mobile,
         city: req.body.city,
-        country: req.body.country
+        country: req.body.country,
+        symptoms: 'Pain in Back',
+        briefDesc: 'Muscle Pain , Not fracture seen',
+        longDesc: 'Who classification as normal , Fracture risk is minimal and has absolute no chanceof increasing.',
+        prescribedDoctor: 'John Doe',
+        prescribedDoctorAddress: 'Jetalpur Road , Baroda',
+        prescribedDoctorContact: '9087123433',
+        reports: [{
+            reportof: 'X-Ray',
+            symptoms: 'Pain in Back',
+            briefDesc: 'Muscle Pain , Not fracture seen',
+            longDesc: 'Who classification as normal , Fracture risk is minimal and has absolute no chanceof increasing.',
+            conclusion: 'Normal delivery required. Nothing abnormal',
+            findings: 'WHO classification : Normal , Fracture Risk : Not Increased',
+            reportImages: [{
+                imageTitle: 'X-Ray for Spine',
+                imageDescription: 'x-Lumber Spine X-Ray Scan.',
+                imageUrl: "http://www.avoidboneloss.com/hologic2.jpg"
+            }],
+            prescribedDoctor: 'Dr Batra',
+            prescribedDoctorAddress: 'Baroda',
+            prescribedDoctorContact: '9038127638',
+            uploadedBy: 'HOLOGIC Imaging',
+            uploaderAddress: 'FatehGunj , Baroda',
+            uploaderContact: '9038173053'
+        }, {
+            reportof: 'Blood Test',
+            symptoms: 'Weakness',
+            briefDesc: 'Low in Healoglobin',
+            longDesc: 'Low in Heamoglobin , Nothing Serious',
+            conclusion: 'High Cholestrol',
+            findings: 'High Cholestrol Seen in Blood',
+            reportImages: [{
+                imageTitle: 'Blood Test for Cholestrol',
+                imageDescription: 'High Blood Cholestrol level',
+                imageUrl: "http://ozonehospital.com/wp-content/uploads/2015/06/Testimony20.jpg"
+            }],
+            prescribedDoctor: 'Dr Batra',
+            prescribedDoctorAddress: 'Baroda',
+            prescribedDoctorContact: '9038127638',
+            uploadedBy: 'HOLOGIC Imaging',
+            uploaderAddress: 'FatehGunj , Baroda',
+            uploaderContact: '9038173053'
+        }]
     });
 
     async.series({
@@ -54,7 +97,7 @@ var signupProcessor = function(req, SuccessCB, ErrorCB) {
                     console.log("error was there in newUserHistoryCreation", err);
                     callback(err, null);
                 } else {
-                    console.log("data successfully saved",data);			
+                    console.log("data successfully saved", data);
                     //SuccessCB({ "success": "created successfully" });
                     callback(null, data);
                 }
@@ -63,9 +106,9 @@ var signupProcessor = function(req, SuccessCB, ErrorCB) {
     }, function(err, results) {
         // results is now equal to: {one: 1, two: 2}
         if (err) {
-        	ErrorCB(err);
-        }else{
-        	SuccessCB({ "success": "created successfully" });
+            ErrorCB(err);
+        } else {
+            SuccessCB({ "success": "created successfully" });
         }
     });
 

@@ -1,6 +1,6 @@
 (function() {
     angular.module('TimeWaste')
-        .config(['$stateProvider', '$urlRouterProvider', '$qProvider', function($stateProvider, $urlRouterProvider , $qProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$qProvider', function($stateProvider, $urlRouterProvider, $qProvider) {
 
             $urlRouterProvider.otherwise('/signin');
             $qProvider.errorOnUnhandledRejections(false);
@@ -61,6 +61,7 @@
                 url: "/home",
                 templateUrl: "/home/templates/home.html",
                 controller: "homeCtrl",
+                controllerAs: "homeCtrl",
                 resolve: {
                     loginRequired: loginRequired
                 }
