@@ -65,6 +65,8 @@ var UserHistorySchema = new mongoose.Schema({
             required: true
         },
         reportImages: [{
+            imageTitle: String,
+            imageDescription: String,
             imageUrl: String,
             metadata: { type: Array, default: [] }
         }],
