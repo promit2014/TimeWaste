@@ -41,7 +41,7 @@ var autheticatedrouter = function(passport) {
             res.status(201).json(data);
         }, function(err) {
             console.log("Error Out", err);
-            res.status(500).json({ error: "Error Occured" });
+            res.status(500).json({ error: err });
         });
     });
 
